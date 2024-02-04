@@ -3,6 +3,7 @@ package com.example.composeproject
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -22,14 +23,16 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun UserInfo(name: String, age: Int) {
+    Column {
+        repeat(10) {
+            Text(text = "Hello $name! You are $age")
+        }
+    }
 }
 
+@Preview
 @Composable
-fun UserInfo(name: String, age: Int) {
-    Text(text = "Hello $name! You are $age")
+fun UserInfoPreview() {
+    UserInfo(name = "Artyom", age = 22)
 }
